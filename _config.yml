@@ -1,0 +1,22 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink: pretty
+plugins: [jekyll-paginate]
+
+# Setup
+title: Ben Reich
+tagline: "Collection of random tidbits"
+description: "Posts about certain topics that I find interesting"
+url: https://benreich.dev
+baseurl: ""
+paginate: 5
+
+# About/contact
+author:
+  name: Ben Reich
+  url: https://benreich.dev
+  email: benreich90@gmail.com
+
+# Custom vars
+version: 1.0.0
