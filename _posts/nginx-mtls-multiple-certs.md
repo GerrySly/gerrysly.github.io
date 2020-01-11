@@ -21,4 +21,27 @@ Now before I delve into my ```nginx.conf``` I wanted to preface it with some lim
 
 ## Process
 
-The process by which I achieve mTLS with multiple certificates can really be more easily rationalised as mTLS with multiple DN's.
+The process by which I achieve mTLS with multiple certificates can really be more easily rationalised as mTLS with multiple DN's. The basic building block that we leverage within nginx is the [ngx_http_ssl_module](http://nginx.org/en/docs/http/ngx_http_ssl_module.html) and it's associated directives. The process that is completed occurs as such:
+
+1. First when the ServerHello message is sent by nginx back to the client (in our example the client is our Kong gateway) it includes the public certificate. This is the first step in the mutual part of mTLS.
+
+2. Our client (Kong in this case) verifies that the certificate is one signed by our internal Root CA and that it is also coming from a whitelisted DN that it supports. If at this point the client is not happy with the identity of the server (e.g. it presents a self-signed certificate) it can reject the identity and not continue with the TLS handshake
+
+3. At the same time that the nginx (server) responds with it's own certificate, it send a packet requesting the clients certificate, the client can concurrently respond back with it's own certificate, if it does not nginx can reject the client at this point with 403 Forbidden.
+
+4. This is where the magic happens. Nginx will not validate the CA of the presented certificate (leveraging the ```ssl_trusted_certificate``` directive in nginx). Assuming the CA was valid, there is now a variable set which represents the clients DN, ```$ssl_client_s_dn```. We can now use a basic if condition to validate if the DN presented matches one we know. If it does not match we return a 403
+
+## Multiple DNs
+
+Nginx configuration files have limited capacity for complex conditional logic and as such you have to get a bit creative with how you lay out your config file. For our particular setup, we leverage entrypoint scripts in our Dockerfile's such that they bootstrap the ```nginx.conf``` file. One such example is the usage of an environment variable called ```$MTLS_ENABLED``` that will perform some shell-fu to enable or disable mTLS. The following is a snippet of our bootstrap script that performs the logic
+
+```shell
+if [ -z "${MTLS_ENABLED:-}" ]; then
+  if [[ "${MTLS_ENABLED}"]]
+  sed -i '' 's/__MTLS__ENABLED__/ENABLED_/g' /etc/nginx/nginx.conf
+else
+  sed -i '' 's/__MTLS__ENABLED__/DISABLED/g' /etc/nginx/nginx.conf
+fi
+```
+
+Basically what this is doing is in-place replacing any occurrence of the token ```__MTLS__ENABLED__``` within the ```nginx.conf``` with the ENABLED_ token.
