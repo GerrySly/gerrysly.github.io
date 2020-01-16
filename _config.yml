@@ -9,7 +9,7 @@ title: Ben Reich
 tagline: "Collection of random tidbits"
 description: "Posts about certain topics that I find interesting"
 url: https://benreich.dev
-baseurl: ""
+baseurl: "https://benreich.dev"
 paginate: 5
 
 # About/contact
