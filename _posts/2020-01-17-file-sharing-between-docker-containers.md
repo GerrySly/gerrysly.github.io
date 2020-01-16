@@ -1,6 +1,6 @@
 ---
 layout: post
-title: File Sharing between Running Docker Containers
+title: File Sharing between Docker Containers
 ---
 
 So this post will be short and sweet but I just wanted to document something awesome I came across yesterday regarding Docker and how to share files between two containers which are running.
