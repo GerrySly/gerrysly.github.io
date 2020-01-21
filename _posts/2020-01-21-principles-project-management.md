@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Book Summary: Principles of Product Management
-Category: Book-Summary
+category: Book-Summary
 ---
 
 So one of the things I really wanted to achieve with writing posts was to really learn how to properly articulate my thoughts and also to provide a space that I can catalogue my learnings and thoughts as I progress. One of the things I really wish to start keeping track of is some of the books I've been reading and the pearls of wisdom and things that crop up in them.
