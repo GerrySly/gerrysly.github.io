@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Book Summary: Principles of Product Management
+title: "Book Summary: Principles of Product Management"
 category: Book-Summary
 ---
 
