@@ -11,6 +11,7 @@ description: "Posts about certain topics that I find interesting"
 url: https://benreich.dev
 baseurl: "https://benreich.dev"
 paginate: 5
+permalink: /:categories/:title/
 
 # About/contact
 author:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Terraform Module Sources
+category: DevOps
 ---
 
 This past week and a bit I've been really digging into [Terraform module sources](https://www.terraform.io/docs/modules/sources.html) and their ability to externalise the module that you rely upon.

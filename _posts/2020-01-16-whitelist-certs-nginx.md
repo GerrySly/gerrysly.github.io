@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Certificate Whitelisting in Nginx
+category: DevOps
 ---
 
 Nginx has to be one of my all time favourite pieces of software. I remember reading about it and it's architecture in the book, "The Architecture of Open Source (Volume 2)", and being thoroughly impressed with their hot restarting mechanism. Another fantastic article on the structuring of nginx is, "[Inside NGINX: How We Designed for Performance & Scale](https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/)", I highly encourage you to read one or the other!
