@@ -1,32 +1,72 @@
 @import url(fonts.css);
 
 :root {
+  --background-color: #f8f8f8;
   --nav-bg-color: #fff;
-  --background-color: lightgray;
+  --nav-item-hover-bg-color: #000;
+  --nav-item-hover-text-color: #fff;
+  --nav-text-color: #000;
+  --shadow-color: rgba(0 0 0 / 20%);
 }
 
 body {
   background-color: var(--background-color);
-  margin: 0px;
+  margin: 0;
 }
 
 nav {
+  align-items: center;
   background-color: var(--nav-bg-color);
-  width: 25%;
+  box-shadow: 0 0 3px 0 var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  font-family: "SourceSansPro";
+  height: 100%;
   min-width: 300px;
   max-width: 400px;
-  height: 100%;
+  padding-top: 20px;
   position: absolute;
-  font-family: "SourceSansPro";
+  width: 25%;
 }
 
 nav > ul {
-  margin: 0px;
   list-style: none;
+  margin: 0;
+  padding: 20px 0 0 0;
+}
+
+nav > ul > li {
+  display: block;
+  margin: 0;
+  text-align: center;
 }
 
 nav > ul > li > a {
-  display: block;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--nav-item-hover-bg-color) 50%
+  );
+  background-size: 100% 200%;
+  color: var(--nav-text-color);
   height: 50px;
   line-height: 50px;
+  padding: 10px;
+  text-decoration: none;
+  transition: background-position 500ms, color 500ms;
+}
+
+nav > ul > li > a:hover {
+  background-position: 0 -100%;
+  color: var(--nav-item-hover-text-color);
+}
+
+nav > #logo {
+  background-image: url(../images/ben-logo.svg);
+  background-position: bottom 5% right 30%;
+  background-size: 110%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 0 var(--shadow-color);
+  height: 250px;
+  width: 250px;
 }
