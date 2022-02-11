@@ -1,0 +1,32 @@
+@import url(fonts.css);
+
+:root {
+  --nav-bg-color: #fff;
+  --background-color: lightgray;
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0px;
+}
+
+nav {
+  background-color: var(--nav-bg-color);
+  width: 25%;
+  min-width: 300px;
+  max-width: 400px;
+  height: 100%;
+  position: absolute;
+  font-family: "SourceSansPro";
+}
+
+nav > ul {
+  margin: 0px;
+  list-style: none;
+}
+
+nav > ul > li > a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+}
