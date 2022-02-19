@@ -5,6 +5,7 @@ date: "2022-02-19"
 description: "CSS coverage and it's implication on performance"
 tags: ["shortcodes", "privacy"]
 ShowToc: false
+draft: true
 ---
 One typical workflow in my team is the development of a thing, the adoptance of said thing and a subsequent turn down or deprecation. Typically in the deprecation phase various code paths are removed and space is reclaimed. This is super useful as bloat in our JavaScript or C++ can cause load times (and sometimes lead to various tricky bugs).
 
@@ -16,4 +17,5 @@ At Google (specifically for my team) we're not using Puppeteer for our tests and
 
 ## Browser Tests
 
-One of the nifty things with browser tests is you have deep access to the constituents that make Chrome so powerful, such as Devtools. We can 
+One of the nifty things with browser tests is you have deep access to the constituents that make Chrome so powerful, such as Devtools. We can hook into the Chrome Devtools Protocol (in a very similar way to Puppeteer) and pull out the CSS coverage information.
+
